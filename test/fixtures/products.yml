@@ -11,3 +11,9 @@ two:
   description: MyText
   image_url: MyString
   price: 9.99
+
+ruby:
+  title: Programming Ruby 1.9
+  description: All about negative energy.
+  price: 49.95
+  image_url: rails.png

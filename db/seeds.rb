@@ -13,3 +13,7 @@ Ruby is the fastest growing and most exciting dynamic language out there. If you
 you should add Ruby to your toolbox. </p>},
 image_url: 'rails.png',
 price: 49.95)
+Product.create(title: "Secondary Product", 
+			description: "This is also a product but not like the first product making it different", 
+			image_url: "rails.png", 
+			price: 2536.54)
