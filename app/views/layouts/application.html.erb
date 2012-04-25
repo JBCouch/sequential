@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Sequential</title>
+  <title>Sequential Labels</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body class='<%= controller.controller_name %>'>
-
-<%= yield %>
-
-</body>
+	<%= render 'layouts/header' %>
+	<div class='columns'>
+		<div class='side'>
+		<ul>
+		  <li><a href="http://www....">Home</a></li> 
+		  <li><a href="http://www..../faq">Questions</a></li> 
+		  <li><a href="http://www..../news">News</a></li> 
+		  <li><a href="http://www..../contact">Contact</a></li>
+		</ul>
+	</div>
+	<div id="main"> 
+		<%= yield %>
+	</div> 
+</div>
+</body> 
 </html>
