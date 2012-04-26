@@ -39,16 +39,24 @@ class LineItemsController < ApplicationController
 
   # POST /line_items
   # POST /line_items.json
-  def create
-    @line_item = LineItem.new(params[:line_item])
+  def create 
+  
+    @cart = current_cart
+    product = Product.find(params[:product_id])
+    @line_item = @cart.line_items.build(product_id: product.id, cart_id: @cart_id)
 
     respond_to do |format|
+  
       if @line_item.save
-        format.html { redirect_to @line_item, notice: 'Line item was successfully created.' }
-        format.json { render json: @line_item, status: :created, location: @line_item }
+        format.html { redirect_to @line_item.cart,
+          notice: 'Line item was successfully created.' }
+      
+        format.json { render json: @line_item,
+          status: :created, location: @line_item }
       else
         format.html { render action: "new" }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
+        format.json { render json: @line_item.errors,
+          status: :unprocessable_entity }
       end
     end
   end
@@ -61,7 +69,7 @@ class LineItemsController < ApplicationController
     respond_to do |format|
       if @line_item.update_attributes(params[:line_item])
         format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
-        format.json { head :no_content }
+        format.json { head :ok }
       else
         format.html { render action: "edit" }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
@@ -77,7 +85,7 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to line_items_url }
-      format.json { head :no_content }
+      format.json { head :ok }
     end
   end
 end
