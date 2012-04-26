@@ -6,20 +6,22 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body class='<%= controller.controller_name %>'>
-	<%= render 'layouts/header' %>
-	<div class='columns'>
-		<div class='side'>
-		<ul>
-		  <li><a href="http://www....">Home</a></li> 
-		  <li><a href="http://www..../faq">Questions</a></li> 
-		  <li><a href="http://www..../news">News</a></li> 
-		  <li><a href="http://www..../contact">Contact</a></li>
-		</ul>
+<body div id='wrapper'>
+	<div class='<%= controller.controller_name %>'>
+		<%= render 'layouts/header' %>
+		<div id='columns'>
+		    <div id='side'>
+				<ul>
+				  <li><%= link_to "Home", store_path %></li> 
+				  <li><a href="http://www..../faq">Questions</a></li> 
+				  <li><a href="http://www..../news">News</a></li> 
+				  <li><a href="http://www..../contact">Contact</a></li>
+				</ul>
+			</div>
+			<div id='main'> 
+				<%= yield %>
+			</div> 
+		</div>
 	</div>
-	<div id="main"> 
-		<%= yield %>
-	</div> 
-</div>
 </body> 
 </html>
