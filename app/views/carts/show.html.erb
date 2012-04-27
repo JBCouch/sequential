@@ -1,12 +1,6 @@
 <% if notice %> 
-    <p id="notice">
-	<%= notice %></p> 
+    <p id="notice"><%= notice %></p> 
 <% end %>
 
-<h2> Your Cart, Sire... </h2>
-<ul>
-	<%= @cart.line_items.each do |item| %>
-	<li><%= item.product.title %> </li>
-	<% end %>
-</ul>
+<%= render(@cart) %>
 
